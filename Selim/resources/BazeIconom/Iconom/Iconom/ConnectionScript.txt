@@ -1,0 +1,2 @@
+﻿
+Database=DESKTOP-SV9GMAA;Integrated Security=True;Connect Timeout=30
