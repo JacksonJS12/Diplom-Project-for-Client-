@@ -1,2 +1,2 @@
 ﻿
-Database=DESKTOP-SV9GMAA;Integrated Security=True;Connect Timeout=30
+Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\BD_Iconom.mdf;Integrated Security=True;Connect Timeout=30
