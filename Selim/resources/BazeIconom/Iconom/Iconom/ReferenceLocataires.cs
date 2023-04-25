@@ -18,7 +18,7 @@ namespace Iconom
             InitializeComponent();
         }
         int n = 0; // Брой на записите
-        SqlConnection connIconom = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\BazeIconom\Iconom\Iconom\BD_Iconom.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection connIconom = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\ricky\source\repos\Diplom-Projects\Selim\resources\BazeIconom\Iconom\Iconom\BD_Iconom.mdf;Integrated Security=True;Connect Timeout=30");
         //SqlConnection connIconom = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;AttachDbFilename=D:\\ExamplesSQL\\TableMagasin\\myMagasin.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         // Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\BazeIconom\Iconom\Iconom\BD_Iconom.mdf;Integrated Security=True;Connect Timeout=30
         public int GetLength()

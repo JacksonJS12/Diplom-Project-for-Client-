@@ -93,7 +93,7 @@ namespace Iconom
             // 
             this.txtStatus.Location = new System.Drawing.Point(270, 149);
             this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(157, 34);
+            this.txtStatus.Size = new System.Drawing.Size(157, 29);
             this.txtStatus.TabIndex = 13;
             this.txtStatus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -102,7 +102,7 @@ namespace Iconom
             this.txtDateOutput.Location = new System.Drawing.Point(270, 311);
             this.txtDateOutput.Margin = new System.Windows.Forms.Padding(6);
             this.txtDateOutput.Name = "txtDateOutput";
-            this.txtDateOutput.Size = new System.Drawing.Size(104, 34);
+            this.txtDateOutput.Size = new System.Drawing.Size(104, 29);
             this.txtDateOutput.TabIndex = 11;
             this.txtDateOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -111,7 +111,7 @@ namespace Iconom
             this.txtDateInput.Location = new System.Drawing.Point(270, 258);
             this.txtDateInput.Margin = new System.Windows.Forms.Padding(6);
             this.txtDateInput.Name = "txtDateInput";
-            this.txtDateInput.Size = new System.Drawing.Size(104, 34);
+            this.txtDateInput.Size = new System.Drawing.Size(104, 29);
             this.txtDateInput.TabIndex = 10;
             this.txtDateInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -120,7 +120,7 @@ namespace Iconom
             this.txtYearBorn.Location = new System.Drawing.Point(270, 205);
             this.txtYearBorn.Margin = new System.Windows.Forms.Padding(6);
             this.txtYearBorn.Name = "txtYearBorn";
-            this.txtYearBorn.Size = new System.Drawing.Size(90, 34);
+            this.txtYearBorn.Size = new System.Drawing.Size(90, 29);
             this.txtYearBorn.TabIndex = 9;
             this.txtYearBorn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -129,7 +129,7 @@ namespace Iconom
             this.txtNumberApp.Location = new System.Drawing.Point(270, 96);
             this.txtNumberApp.Margin = new System.Windows.Forms.Padding(6);
             this.txtNumberApp.Name = "txtNumberApp";
-            this.txtNumberApp.Size = new System.Drawing.Size(63, 34);
+            this.txtNumberApp.Size = new System.Drawing.Size(63, 29);
             this.txtNumberApp.TabIndex = 8;
             this.txtNumberApp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -138,7 +138,7 @@ namespace Iconom
             this.txtName.Location = new System.Drawing.Point(270, 43);
             this.txtName.Margin = new System.Windows.Forms.Padding(6);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(418, 34);
+            this.txtName.Size = new System.Drawing.Size(418, 29);
             this.txtName.TabIndex = 7;
             // 
             // label7
@@ -148,7 +148,7 @@ namespace Iconom
             this.label7.Location = new System.Drawing.Point(13, 311);
             this.label7.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(230, 29);
+            this.label7.Size = new System.Drawing.Size(181, 24);
             this.label7.TabIndex = 6;
             this.label7.Text = "Дата на отписване";
             // 
@@ -159,7 +159,7 @@ namespace Iconom
             this.label6.Location = new System.Drawing.Point(13, 258);
             this.label6.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(217, 29);
+            this.label6.Size = new System.Drawing.Size(171, 24);
             this.label6.TabIndex = 5;
             this.label6.Text = "Дата на вписване";
             // 
@@ -170,7 +170,7 @@ namespace Iconom
             this.label5.Location = new System.Drawing.Point(13, 205);
             this.label5.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(239, 29);
+            this.label5.Size = new System.Drawing.Size(186, 24);
             this.label5.TabIndex = 4;
             this.label5.Text = "Година на раждане";
             // 
@@ -181,7 +181,7 @@ namespace Iconom
             this.label4.Location = new System.Drawing.Point(13, 152);
             this.label4.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(248, 29);
+            this.label4.Size = new System.Drawing.Size(192, 24);
             this.label4.TabIndex = 3;
             this.label4.Text = "Статут на живущият";
             // 
@@ -192,7 +192,7 @@ namespace Iconom
             this.label3.Location = new System.Drawing.Point(13, 99);
             this.label3.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(183, 29);
+            this.label3.Size = new System.Drawing.Size(145, 24);
             this.label3.TabIndex = 2;
             this.label3.Text = "Апартамент №";
             // 
@@ -203,7 +203,7 @@ namespace Iconom
             this.label2.Location = new System.Drawing.Point(13, 46);
             this.label2.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(313, 29);
+            this.label2.Size = new System.Drawing.Size(235, 24);
             this.label2.TabIndex = 1;
             this.label2.Text = "Име, презиме и фамилия";
             // 
@@ -215,7 +215,7 @@ namespace Iconom
             this.label1.Location = new System.Drawing.Point(115, 18);
             this.label1.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(527, 55);
+            this.label1.Size = new System.Drawing.Size(424, 45);
             this.label1.TabIndex = 11;
             this.label1.Text = "Справка за живущите";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -276,9 +276,9 @@ namespace Iconom
             // 
             // ReferenceLocataires
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(947, 461);
+            this.ClientSize = new System.Drawing.Size(947, 498);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
