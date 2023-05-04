@@ -24,5 +24,11 @@ namespace Iconom
             log.Show();
             this.Close();
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            ReferenceLocataires log = new ReferenceLocataires();
+            log.Show();
+        }
     }
 }

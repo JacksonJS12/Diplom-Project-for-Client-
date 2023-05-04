@@ -77,12 +77,7 @@ namespace Iconom
             else
                 n = n + 1; //n++    n += 1
         }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
+        
         private void btnNewLocataire_Click(object sender, EventArgs e)
         {
             this.Hide();

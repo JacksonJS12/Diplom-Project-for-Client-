@@ -1,17 +1,3 @@
-D:\BazeIconom\Iconom\Iconom\bin\Debug\BD_Iconom.mdf
-D:\BazeIconom\Iconom\Iconom\bin\Debug\BD_Iconom_log.ldf
-D:\BazeIconom\Iconom\Iconom\bin\Debug\Iconom.exe.config
-D:\BazeIconom\Iconom\Iconom\bin\Debug\Iconom.exe
-D:\BazeIconom\Iconom\Iconom\bin\Debug\Iconom.pdb
-D:\BazeIconom\Iconom\Iconom\obj\Debug\Iconom.csproj.AssemblyReference.cache
-D:\BazeIconom\Iconom\Iconom\obj\Debug\Iconom.InputOutputFormulaire.resources
-D:\BazeIconom\Iconom\Iconom\obj\Debug\Iconom.Properties.Resources.resources
-D:\BazeIconom\Iconom\Iconom\obj\Debug\Iconom.csproj.GenerateResource.cache
-D:\BazeIconom\Iconom\Iconom\obj\Debug\Iconom.csproj.CoreCompileInputs.cache
-D:\BazeIconom\Iconom\Iconom\obj\Debug\Iconom.exe
-D:\BazeIconom\Iconom\Iconom\obj\Debug\Iconom.pdb
-D:\BazeIconom\Iconom\Iconom\obj\Debug\Iconom.ReferenceLocataires.resources
-D:\BazeIconom\Iconom\Iconom\obj\Debug\Iconom.csproj.SuggestedBindingRedirects.cache
 C:\Users\ricky\source\repos\Diplom-Projects\Selim\resources\BazeIconom\Iconom\Iconom\bin\Debug\BD_Iconom.mdf
 C:\Users\ricky\source\repos\Diplom-Projects\Selim\resources\BazeIconom\Iconom\Iconom\bin\Debug\BD_Iconom_log.ldf
 C:\Users\ricky\source\repos\Diplom-Projects\Selim\resources\BazeIconom\Iconom\Iconom\bin\Debug\Iconom.exe.config

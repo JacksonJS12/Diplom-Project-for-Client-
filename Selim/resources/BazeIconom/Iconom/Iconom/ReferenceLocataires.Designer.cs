@@ -62,7 +62,6 @@ namespace Iconom
             this.btnExit.TabIndex = 14;
             this.btnExit.Text = "Изход";
             this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // groupBox1
             // 
