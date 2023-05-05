@@ -1,0 +1,4 @@
+﻿CREATE TABLE [dbo].[Statut] (
+	[Id] INT PRIMARY KEY IDENTITY
+);
+
