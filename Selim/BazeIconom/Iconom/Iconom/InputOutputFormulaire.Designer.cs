@@ -58,7 +58,7 @@ namespace Iconom
             this.label1.Location = new System.Drawing.Point(143, 23);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(393, 45);
+            this.label1.Size = new System.Drawing.Size(486, 55);
             this.label1.TabIndex = 0;
             this.label1.Text = "Бланка за вписване";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -70,7 +70,7 @@ namespace Iconom
             this.label2.Location = new System.Drawing.Point(7, 40);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(231, 22);
+            this.label2.Size = new System.Drawing.Size(296, 27);
             this.label2.TabIndex = 1;
             this.label2.Text = "Име, презиме и фамилия";
             // 
@@ -81,7 +81,7 @@ namespace Iconom
             this.label3.Location = new System.Drawing.Point(7, 93);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(138, 22);
+            this.label3.Size = new System.Drawing.Size(177, 27);
             this.label3.TabIndex = 2;
             this.label3.Text = "Апартамент №";
             // 
@@ -92,7 +92,7 @@ namespace Iconom
             this.label4.Location = new System.Drawing.Point(7, 145);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(182, 22);
+            this.label4.Size = new System.Drawing.Size(236, 27);
             this.label4.TabIndex = 3;
             this.label4.Text = "Статут на живущият";
             // 
@@ -103,7 +103,7 @@ namespace Iconom
             this.label5.Location = new System.Drawing.Point(7, 198);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(178, 22);
+            this.label5.Size = new System.Drawing.Size(224, 27);
             this.label5.TabIndex = 4;
             this.label5.Text = "Година на раждане";
             // 
@@ -114,7 +114,7 @@ namespace Iconom
             this.label6.Location = new System.Drawing.Point(7, 251);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(161, 22);
+            this.label6.Size = new System.Drawing.Size(207, 27);
             this.label6.TabIndex = 5;
             this.label6.Text = "Дата на вписване";
             // 
@@ -125,7 +125,7 @@ namespace Iconom
             this.label7.Location = new System.Drawing.Point(7, 304);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(170, 22);
+            this.label7.Size = new System.Drawing.Size(217, 27);
             this.label7.TabIndex = 6;
             this.label7.Text = "Дата на отписване";
             // 
@@ -155,44 +155,47 @@ namespace Iconom
             // txtStatus
             // 
             this.txtStatus.FormattingEnabled = true;
+            this.txtStatus.Items.AddRange(new object[] {
+            "наемател",
+            "собственик"});
             this.txtStatus.Location = new System.Drawing.Point(254, 143);
             this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(155, 30);
+            this.txtStatus.Size = new System.Drawing.Size(155, 34);
             this.txtStatus.TabIndex = 12;
             // 
             // txtDateOutput
             // 
             this.txtDateOutput.Location = new System.Drawing.Point(252, 301);
             this.txtDateOutput.Name = "txtDateOutput";
-            this.txtDateOutput.Size = new System.Drawing.Size(106, 31);
+            this.txtDateOutput.Size = new System.Drawing.Size(106, 37);
             this.txtDateOutput.TabIndex = 11;
             // 
             // txtDateInput
             // 
             this.txtDateInput.Location = new System.Drawing.Point(254, 248);
             this.txtDateInput.Name = "txtDateInput";
-            this.txtDateInput.Size = new System.Drawing.Size(104, 31);
+            this.txtDateInput.Size = new System.Drawing.Size(104, 37);
             this.txtDateInput.TabIndex = 10;
             // 
             // txtYearBorn
             // 
             this.txtYearBorn.Location = new System.Drawing.Point(253, 195);
             this.txtYearBorn.Name = "txtYearBorn";
-            this.txtYearBorn.Size = new System.Drawing.Size(90, 31);
+            this.txtYearBorn.Size = new System.Drawing.Size(90, 37);
             this.txtYearBorn.TabIndex = 9;
             // 
             // txtNumberApp
             // 
             this.txtNumberApp.Location = new System.Drawing.Point(254, 90);
             this.txtNumberApp.Name = "txtNumberApp";
-            this.txtNumberApp.Size = new System.Drawing.Size(63, 31);
+            this.txtNumberApp.Size = new System.Drawing.Size(63, 37);
             this.txtNumberApp.TabIndex = 8;
             // 
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(257, 37);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(418, 31);
+            this.txtName.Size = new System.Drawing.Size(418, 37);
             this.txtName.TabIndex = 7;
             // 
             // btnSave
@@ -203,6 +206,7 @@ namespace Iconom
             this.btnSave.TabIndex = 9;
             this.btnSave.Text = "Запис";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnReturn
             // 
@@ -228,7 +232,7 @@ namespace Iconom
             // 
             // InputOutputFormulaire
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(936, 510);
             this.Controls.Add(this.groupBox2);
