@@ -50,6 +50,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -67,25 +68,34 @@
       <DependentUpon>BD_IconomDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="ConnectionString.cs" />
-    <Compile Include="ReferenceLocataires.cs">
+    <Compile Include="CorrectionPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReferenceLocataires.Designer.cs">
-      <DependentUpon>ReferenceLocataires.cs</DependentUpon>
+    <Compile Include="CorrectionPage.Designer.cs">
+      <DependentUpon>CorrectionPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="InputOutputFormulaire.cs">
+    <Compile Include="MainPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InputOutputFormulaire.Designer.cs">
-      <DependentUpon>InputOutputFormulaire.cs</DependentUpon>
+    <Compile Include="MainPage.Designer.cs">
+      <DependentUpon>MainPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="NewInhabitantPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewInhabitantPage.Designer.cs">
+      <DependentUpon>NewInhabitantPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StartUp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ReferenceLocataires.resx">
-      <DependentUpon>ReferenceLocataires.cs</DependentUpon>
+    <EmbeddedResource Include="CorrectionPage.resx">
+      <DependentUpon>CorrectionPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InputOutputFormulaire.resx">
-      <DependentUpon>InputOutputFormulaire.cs</DependentUpon>
+    <EmbeddedResource Include="MainPage.resx">
+      <DependentUpon>MainPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewInhabitantPage.resx">
+      <DependentUpon>NewInhabitantPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -128,6 +138,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>database.mdf</DependentUpon>
     </Content>
+    <Content Include="SQLQuery1.sql" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
