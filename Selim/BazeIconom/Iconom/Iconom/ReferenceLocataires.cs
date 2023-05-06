@@ -24,7 +24,7 @@ namespace Iconom
         public int GetLength()
         {
             //Create command link
-            SqlCommand cmdIconom = new SqlCommand("Select * from BookIconom", connIconom);
+            SqlCommand cmdIconom = new SqlCommand("Select * from Inhabitant", connIconom);
             connIconom.Open();
             //Create data adapter
             SqlDataAdapter daIconom = new SqlDataAdapter(cmdIconom);
@@ -40,7 +40,7 @@ namespace Iconom
         public void GetIconom(int x)
         {
             //Create command link
-            SqlCommand cmdIconom = new SqlCommand("Select * from BookIconom", connIconom);
+            SqlCommand cmdIconom = new SqlCommand("Select * from Inhabitant", connIconom);
             connIconom.Open();
             //Create data adapter
             SqlDataAdapter daIconom = new SqlDataAdapter(cmdIconom);
@@ -52,12 +52,20 @@ namespace Iconom
             daIconom.Dispose();
 
             //string date;
-            txtNumberApp.Text =  dataIconom.Rows[x][0].ToString();
-            txtName.Text =       dataIconom.Rows[x][1].ToString();
-            txtStatus.Text =     dataIconom.Rows[x][2].ToString();
-            txtYearBorn.Text =   dataIconom.Rows[x][5].ToString();
-            txtDateInput.Text =  dataIconom.Rows[x][3].ToString();
-            txtDateOutput.Text = dataIconom.Rows[x][4].ToString();
+            txtName.Text = dataIconom.Rows[x][1].ToString();
+            txtNumberApp.Text = dataIconom.Rows[x][2].ToString();
+            txtStatus.Text = dataIconom.Rows[x][3].ToString();
+            txtYearBorn.Text = dataIconom.Rows[x][4].ToString();
+            txtDateInput.Text = dataIconom.Rows[x][5].ToString();
+            if (dataIconom.Rows[x][6].ToString() == "")
+            {
+                txtDateOutput.Text = "---";
+            }
+            else
+            {
+                txtDateOutput.Text = dataIconom.Rows[x][6].ToString();
+
+            }
         }
 
         private void btnPrev_Click(object sender, EventArgs e)
