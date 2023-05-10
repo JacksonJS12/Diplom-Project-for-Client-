@@ -59,7 +59,7 @@ namespace Iconom
 
             int rowsAffected = command.ExecuteNonQuery();
 
-            MessageBox.Show(rowsAffected + " ред(ове) е(са) изтрит(и).");
+            MessageBox.Show(rowsAffected + " запис(а) е изтрит от дневника.");
             connection.Close();
 
 
@@ -85,14 +85,15 @@ namespace Iconom
                         txtStatus.Text = reader.GetString(3).ToString();
                         txtYearBorn.Text = reader.GetInt32(4).ToString();
 
-                        txtDateInput.Text = 
-                                (!reader.IsDBNull(5) ? 
-                                reader.GetDateTime(5) : 
-                                (DateTime?)null).ToString()
-                                .Remove(
-                                    (!reader.IsDBNull(5) 
-                                              ? reader.GetDateTime(5) 
-                                              : (DateTime?)null).ToString().Length - 12, 12);
+                        DateTime dateInput = reader.GetDateTime(5);
+
+                        int yearInput = dateInput.Year;
+                        int monthInput = dateInput.Month;
+                        int dayInput = dateInput.Day;
+
+                        string printMonthInput = monthInput.ToString().Length < 2 ? $"0{monthInput}" : $"{monthInput}";
+                        string printDayInput = dayInput.ToString().Length < 2 ? $"0{dayInput}" : $"{dayInput}";
+                        txtDateInput.Text = $"{yearInput}-{printMonthInput}-{printDayInput}";
 
                         if (reader.IsDBNull(6))
                         {
@@ -100,16 +101,19 @@ namespace Iconom
                         }
                         else
                         {
-                            txtDateOutput.Text =
-                                (!reader.IsDBNull(6) ?
-                                    reader.GetDateTime(6) :
-                                    (DateTime?)null).ToString()
-                                .Remove(
-                                    (!reader.IsDBNull(6)
-                                        ? reader.GetDateTime(6)
-                                        : (DateTime?)null).ToString().Length - 12, 12);
+                            /*txtDateOutput.Text*/
+                            DateTime date = reader.GetDateTime(6);
+
+                            int year = date.Year;
+                            int month = date.Month;
+                            int day = date.Day;
+
+                            string printMonth = month.ToString().Length < 2 ? $"0{month}" : $"{month}";
+                            string printDay = day.ToString().Length < 2 ? $"0{day}" : $"{day}";
+
+                            txtDateOutput.Text = $"{year}-{printMonth}-{printDay}";
                         }
-                        MessageBox.Show("Открит запис.");
+                        //MessageBox.Show("Открит запис.");
 
                         txtSerachBox.Text = "Търси по име";
                     }
