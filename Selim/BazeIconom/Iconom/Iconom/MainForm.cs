@@ -60,15 +60,22 @@ namespace Iconom
             txtNumberApp.Text = dataIconom.Rows[x][2].ToString();
             txtStatus.Text = dataIconom.Rows[x][3].ToString();
             txtYearBorn.Text = dataIconom.Rows[x][4].ToString();
-            txtDateInput.Text = dataIconom.Rows[x][5].ToString().Remove(dataIconom.Rows[x][5].ToString().Length - 12, 12);
-            if (dataIconom.Rows[x][6].ToString() == "")
-            {
-                txtDateOutput.Text = "---";
-            }
-            else
-            {
-                txtDateOutput.Text = dataIconom.Rows[x][6].ToString().Remove(dataIconom.Rows[x][6].ToString().Length - 12, 12);
 
+            DateTime dateInput = (DateTime)dataIconom.Rows[x][5];
+            int yearInput = dateInput.Year;
+            string monthInput = dateInput.Month.ToString().Length < 2 ? $"0{dateInput.Month}" : dateInput.Month.ToString();
+            string dayInput = dateInput.Day.ToString().Length < 2 ? $"0{dateInput.Day}" : dateInput.Day.ToString();
+
+            txtDateInput.Text = $"{yearInput}-{monthInput}-{dayInput}";
+
+            if (dataIconom.Rows[x][6].ToString() != "")
+            {
+                DateTime dateOuput = (DateTime)dataIconom.Rows[x][6];
+                int yearOuput = dateOuput.Year;
+                string monthOuput = dateOuput.Month.ToString().Length < 2 ? $"0{dateOuput.Month}" : dateOuput.Month.ToString();
+                string dayOuput = dateOuput.Day.ToString().Length < 2 ? $"0{dateOuput.Day}" : dateOuput.Day.ToString();
+
+                txtDateOutput.Text = $"{yearOuput}-{monthOuput}-{dayOuput}";
             }
         }
 
@@ -107,6 +114,12 @@ namespace Iconom
         {
             this.Hide();
             CorrectionForm log = new CorrectionForm();
+            log.txtName.Text = txtName.Text;
+            log.txtNumberApp.Text = txtNumberApp.Text;
+            log.txtStatus.Text = txtStatus.Text;
+            log.txtYearBorn.Text = txtYearBorn.Text;
+            log.txtDateInput.Text = txtDateInput.Text;
+            log.txtDateOutput.Text = txtDateOutput.Text;
             log.StartPosition = FormStartPosition.CenterParent;
             log.ShowDialog();
         }

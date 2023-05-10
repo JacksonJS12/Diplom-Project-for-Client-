@@ -43,7 +43,7 @@ namespace Iconom
 
             int rowsAffected = command.ExecuteNonQuery();
 
-            MessageBox.Show(rowsAffected + " ред(ове) е(са) добавен(и).");
+            MessageBox.Show(rowsAffected +$" {txtName.Text} е добавен(a).");
             connection.Close();
 
             txtName.Text = "";
