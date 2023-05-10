@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
@@ -21,8 +22,8 @@ namespace Iconom
         int? appNumber = int.MinValue;
         string status = string.Empty;
         int? birthYear = int.MinValue;
-        DateTime? enterDate = DateTime.MinValue;
-        DateTime? leavingDate = DateTime.MinValue;
+        string enterDate = string.Empty;
+        string leavingDate = null;
 
 
 
@@ -42,90 +43,38 @@ namespace Iconom
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            SelectQuery();
+            if (txtName.Text != string.Empty)
+            {
+                fullName = txtName.Text;
+                appNumber = int.Parse(txtNumberApp.Text);
+                status = txtStatus.Text;
+                birthYear = int.Parse(txtYearBorn.Text);
+                enterDate = txtDateInput.Text;
+                leavingDate = txtDateOutput.Text;
+
+                SelectQueryId(fullName);
+            }
+            SelectQueryProperties();
             connection.Open();
             SqlCommand command =
                 new SqlCommand(
                     "UPDATE Inhabitant SET [FullName] = @Value1, [AppartementNumber] = @Value2, [Status] = @Value3, [BirthYear] = @Value4, [EnterDate] = @Value5, [LeavingDate] = @Value6 WHERE Id = @id",
                     connection);
 
-            command.Parameters.AddWithValue("@id", id);
-            //name
-            if (txtName.Text == "")
-            {
-                command.Parameters.AddWithValue("@Value1", fullName);
-            }
-            else
-            {
-                command.Parameters.AddWithValue("@Value1", txtName.Text);
-            }
-            //appartement number
-            if (txtNumberApp.Text == "")
-            {
-                command.Parameters.AddWithValue("@Value2", appNumber);
-            }
-            else
-            {
-                command.Parameters.AddWithValue("@Value2", txtNumberApp.Text);
-            }
-
-            //status
-            if (txtStatus.Text == "")
-            {
-                command.Parameters.AddWithValue("@Value3", status);
-            }
-            else
-            {
-                command.Parameters.AddWithValue("@Value3", txtStatus.Text);
-            }
-
-            //birth year
-            if (txtYearBorn.Text == "")
-            {
-                command.Parameters.AddWithValue("@Value4", birthYear);
-            }
-            else
-            {
-                command.Parameters.AddWithValue("@Value4", txtYearBorn.Text);
-            }
-
-            //enter date
-            if (txtDateInput.Text == "")
-            {
-                if (enterDate == null)
-                {
-                    command.Parameters.AddWithValue("@Value5", DBNull.Value);
-                }
-                else
-                {
-                    command.Parameters.AddWithValue("@Value5", enterDate);
-                }
-            }
-            else
-            {
-                command.Parameters.AddWithValue("@Value5", txtDateInput.Text);
-            }
-
-            //leaving date
-            if (txtDateOutput.Text == "")
-            {
-                if (leavingDate == null)
-                {
-                    command.Parameters.AddWithValue("@Value6", DBNull.Value);
-                }
-                else
-                {
-                    command.Parameters.AddWithValue("@Value6", leavingDate);
-                }
-            }
-            else
-            {
-                command.Parameters.AddWithValue("@Value6", txtDateOutput.Text);
-            }
             
+
+            command.Parameters.AddWithValue("@id", id);
+            command.Parameters.AddWithValue("@Value1", fullName);
+            command.Parameters.AddWithValue("@Value2", appNumber);
+            command.Parameters.AddWithValue("@Value3", status);
+            command.Parameters.AddWithValue("@Value4", birthYear);
+            command.Parameters.AddWithValue("@Value5", DateTime.Parse(enterDate));
+            command.Parameters.AddWithValue("@Value6", DateTime.Parse(leavingDate));
+            
+
             int rowsAffected = command.ExecuteNonQuery();
 
-            MessageBox.Show(rowsAffected + " ред(ове) е(са) обновен(и).");
+            MessageBox.Show($" {txtName.Text} е редактиран(a).");
             connection.Close();
 
             txtName.Text = "";
@@ -141,7 +90,7 @@ namespace Iconom
         private void btnSearch_Click(object sender, EventArgs e)
         {
             connection.Open();
-            string query = "SELECT * FROM Inhabitant WHERE FullName = @searchedName";
+            string query = "SELECT * FROM [Inhabitant] WHERE [FullName] = @searchedName";
 
             using (SqlCommand command = new SqlCommand(query, connection))
             {
@@ -158,33 +107,25 @@ namespace Iconom
                         txtStatus.Text = reader.GetString(3).ToString();
                         txtYearBorn.Text = reader.GetInt32(4).ToString();
 
-                        txtDateInput.Text =
-                            (!reader.IsDBNull(5) ?
-                                reader.GetDateTime(5) :
-                                (DateTime?)null).ToString()
-                            .Remove(
-                                (!reader.IsDBNull(5)
-                                    ? reader.GetDateTime(5)
-                                    : (DateTime?)null).ToString().Length - 12, 12);
+                        DateTime dateInput = reader.GetDateTime(5);
+                        int yearInput = dateInput.Year;
+                        string monthInput = dateInput.Month.ToString().Length < 2 ? $"0{dateInput.Month}" : dateInput.Month.ToString();
+                        string dayInput = dateInput.Day.ToString().Length < 2 ? $"0{dateInput.Day}" : dateInput.Day.ToString();
 
-                        if (reader.IsDBNull(6))
+                        txtDateInput.Text = $"{yearInput}-{monthInput}-{dayInput}";
+
+                        if (reader.GetDateTime(6).ToString() != "")
                         {
-                            txtDateOutput.Text = "---";
-                        }
-                        else
-                        {
-                            txtDateOutput.Text =
-                                (!reader.IsDBNull(6) ?
-                                    reader.GetDateTime(6) :
-                                    (DateTime?)null).ToString()
-                                .Remove(
-                                    (!reader.IsDBNull(6)
-                                        ? reader.GetDateTime(6)
-                                        : (DateTime?)null).ToString().Length - 12, 12);
+                            DateTime dateOuput = reader.GetDateTime(6);
+                            int yearOuput = dateOuput.Year;
+                            string monthOuput = dateOuput.Month.ToString().Length < 2 ? $"0{dateOuput.Month}" : dateOuput.Month.ToString();
+                            string dayOuput = dateOuput.Day.ToString().Length < 2 ? $"0{dateOuput.Day}" : dateOuput.Day.ToString();
+
+                            txtDateOutput.Text = $"{yearOuput}-{monthOuput}-{dayOuput}";
                         }
 
 
-                        MessageBox.Show("Открит запис.");
+                        //MessageBox.Show("Открит запис.");
                     }
                     else
                     {
@@ -197,7 +138,23 @@ namespace Iconom
             txtSerachBox.Text = "Търси по име";
         }
 
-        private void SelectQuery()
+        private void SelectQueryId(string fullName)
+        {
+            connection.Open();
+            string query = "SELECT * FROM [Inhabitant] WHERE [FullName] = @fullName";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@fullName", fullName);
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    id = reader.GetInt32(0);
+                }
+            }
+            connection.Close();
+        }
+        private void SelectQueryProperties()
         {
             connection.Open();
             string query = "SELECT * FROM [Inhabitant] WHERE [Id] = @id";
@@ -215,7 +172,7 @@ namespace Iconom
                     birthYear = reader.GetInt32(4);
                     if (!reader.IsDBNull(5))
                     {
-                        enterDate = reader.GetDateTime(5);
+                        enterDate = reader.GetDateTime(5).ToString();
                     }
                     else
                     {
@@ -224,7 +181,7 @@ namespace Iconom
 
                     if (!reader.IsDBNull(6))
                     {
-                        leavingDate = reader.GetDateTime(6);
+                        leavingDate = reader.GetDateTime(6).ToString();
                     }
                     else
                     {
@@ -236,6 +193,6 @@ namespace Iconom
             }
             connection.Close();
         }
-        
+
     }
 }
