@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,18 +16,19 @@ namespace Iconom
     {
         private SqlConnection connection = new SqlConnection(ConnectionString.DbConnection);
 
+        //създавам празни променливи
         int id = int.MinValue;
         string fullName = string.Empty;
         int? appNumber = int.MinValue;
         string status = string.Empty;
         int? birthYear = int.MinValue;
-        DateTime? enterDate = DateTime.MinValue;
-        DateTime? leavingDate = DateTime.MinValue;
+        string enterDate = string.Empty;
+        string leavingDate = string.Empty;
+        string phoneNumber = string.Empty;
 
         public DeleteForm()
         {
             InitializeComponent();
-            txtSerachBox.Text = "Търси по име";
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
@@ -39,133 +41,63 @@ namespace Iconom
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            phoneNumber = textPhoneNumber.Text;
             SelectQuery();
             connection.Open();
+            //DELETE заявка към базата и изтриваме записа
             SqlCommand command =
                 new SqlCommand(
-                    "DELETE FROM [Inhabitant] WHERE Id = @id",
+                    "DELETE FROM [Inhabitant] WHERE [PhoneNumber] = @phoneNumber",
                     connection);
 
-            command.Parameters.AddWithValue("@id", id);
+            command.Parameters.AddWithValue("@phoneNumber", phoneNumber);
 
-            txtName.Text = "";
-            txtNumberApp.Text = "";
-            txtStatus.Text = "";
-            txtYearBorn.Text = "";
-            txtDateInput.Text = "";
-            txtDateOutput.Text = "";
 
-            txtSerachBox.Text = "Търси по име";
+            DialogResult dr = MessageBox.Show("Сигурни ли сте, че искате да изтриете записа?",
+                "", MessageBoxButtons.YesNo);
+            switch (dr)
+            {
+                case DialogResult.Yes:
+                    txtName.Text = "";
+                    txtNumberApp.Text = "";
+                    txtStatus.Text = "";
+                    txtYearBorn.Text = "";
+                    txtDateInput.Text = "";
+                    txtDateOutput.Text = "";
+                    textPhoneNumber.Text = "";
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Записът е изтрит от дневника.");
+                    break;
+                case DialogResult.No:
+                    break;
+            }
 
-            int rowsAffected = command.ExecuteNonQuery();
-
-            MessageBox.Show(rowsAffected + " запис(а) е изтрит от дневника.");
             connection.Close();
 
 
         }
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            connection.Open();
-            string query = "SELECT * FROM Inhabitant WHERE FullName = @searchedName";
-
-            using (SqlCommand command = new SqlCommand(query, connection))
-            {
-                command.Parameters.AddWithValue("@searchedName", txtSerachBox.Text);
-
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    if (reader.Read())
-                    {
-                        // Get the values of the columns for the record
-                        id = reader.GetInt32(0);
-                        txtName.Text = reader.GetString(1);
-                        txtNumberApp.Text = reader.GetInt32(2).ToString();
-                        txtStatus.Text = reader.GetString(3).ToString();
-                        txtYearBorn.Text = reader.GetInt32(4).ToString();
-
-                        DateTime dateInput = reader.GetDateTime(5);
-
-                        int yearInput = dateInput.Year;
-                        int monthInput = dateInput.Month;
-                        int dayInput = dateInput.Day;
-
-                        string printMonthInput = monthInput.ToString().Length < 2 ? $"0{monthInput}" : $"{monthInput}";
-                        string printDayInput = dayInput.ToString().Length < 2 ? $"0{dayInput}" : $"{dayInput}";
-                        txtDateInput.Text = $"{yearInput}-{printMonthInput}-{printDayInput}";
-
-                        if (reader.IsDBNull(6))
-                        {
-                            txtDateOutput.Text = "---";
-                        }
-                        else
-                        {
-                            /*txtDateOutput.Text*/
-                            DateTime date = reader.GetDateTime(6);
-
-                            int year = date.Year;
-                            int month = date.Month;
-                            int day = date.Day;
-
-                            string printMonth = month.ToString().Length < 2 ? $"0{month}" : $"{month}";
-                            string printDay = day.ToString().Length < 2 ? $"0{day}" : $"{day}";
-
-                            txtDateOutput.Text = $"{year}-{printMonth}-{printDay}";
-                        }
-                        //MessageBox.Show("Открит запис.");
-
-                        txtSerachBox.Text = "Търси по име";
-                    }
-                    else
-                    {
-                        MessageBox.Show("Няма открит запис.");
-                    }
-                    connection.Close();
-                }
-            }
-        }
-
+        
         private void SelectQuery()
         {
             connection.Open();
-            string query = "SELECT * FROM [Inhabitant] WHERE [Id] = @id";
+            //SELECT заявка към базата
+            string query = "SELECT * FROM [Inhabitant] WHERE [PhoneNumber] = @phoneNumber";
 
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@id", id);
+            command.Parameters.AddWithValue("@phoneNumber", phoneNumber);
 
-            using (SqlDataReader reader = command.ExecuteReader())
-            {
-                while (reader.Read())
-                {
-                    fullName = reader.GetString(1);
-                    appNumber = reader.GetInt32(2);
-                    status = reader.GetString(3);
-                    birthYear = reader.GetInt32(4);
-                    if (!reader.IsDBNull(5))
-                    {
-                        enterDate = reader.GetDateTime(5);
-                    }
-                    else
-                    {
-                        enterDate = null;
-                    }
+            //изпълвам променливите
+            //давам им стойности
+            fullName = txtName.Text;
+            appNumber = int.Parse(txtNumberApp.Text);
+            status = txtStatus.Text;
+            birthYear = int.Parse(txtYearBorn.Text);
+            enterDate = txtDateInput.Text;
+            leavingDate = txtDateOutput.Text;
 
-                    if (!reader.IsDBNull(6))
-                    {
-                        leavingDate = reader.GetDateTime(6);
-                    }
-                    else
-                    {
-                        leavingDate = null;
-                    }
-
-                    break;
-                }
-            }
             connection.Close();
         }
-        
+
     }
 }
 
