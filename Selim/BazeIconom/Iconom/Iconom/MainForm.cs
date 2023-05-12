@@ -45,7 +45,7 @@ namespace Iconom
             //Create command link
             SqlCommand cmdIconom = new SqlCommand("Select * from Inhabitant", connection);
             connection.Open();
-            //Create data adapter
+             //Create data adapter
             SqlDataAdapter daIconom = new SqlDataAdapter(cmdIconom);
             //Create table link
             DataTable dataIconom = new DataTable();
@@ -77,9 +77,11 @@ namespace Iconom
 
                 txtDateOutput.Text = $"{yearOuput}-{monthOuput}-{dayOuput}";
             }
+
+            txtPhoneNumber.Text = dataIconom.Rows[x][7].ToString();
         }
 
-        private void btnPrev_Click(object sender, EventArgs e)
+        private void btnPrev_Click(object sender, EventArgs e)//ПРЕДИШЕН
         {
             GetIconom(n);
             if (n == 0)
@@ -88,7 +90,7 @@ namespace Iconom
                 n = n - 1;
         }
 
-        private void btnNext_Click(object sender, EventArgs e)
+        private void btnNext_Click(object sender, EventArgs e)//СЛЕДВАЩ
         {
             GetIconom(n);
             if (n == GetLength() - 1)
@@ -102,15 +104,15 @@ namespace Iconom
             this.Close();
         }
 
-        private void btnNewLocataire_Click(object sender, EventArgs e)
+        private void btnNewInhabitantForm_Click(object sender, EventArgs e)//Нов живущ
         {
             this.Hide();
-            NewInhabitantForm log = new NewInhabitantForm();
+            NewInhabitantForm log = new NewInhabitantForm();//прави нов обект 
             log.StartPosition = FormStartPosition.CenterParent;
             log.ShowDialog();
         }
 
-        private void btnCorrection_Click(object sender, EventArgs e)
+        private void btnCorrection_Click(object sender, EventArgs e)//Корекция
         {
             this.Hide();
             CorrectionForm log = new CorrectionForm();
@@ -120,14 +122,22 @@ namespace Iconom
             log.txtYearBorn.Text = txtYearBorn.Text;
             log.txtDateInput.Text = txtDateInput.Text;
             log.txtDateOutput.Text = txtDateOutput.Text;
+            log.textPhoneNumber.Text = txtPhoneNumber.Text;
             log.StartPosition = FormStartPosition.CenterParent;
             log.ShowDialog();
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void btnDelete_Click(object sender, EventArgs e)//изтриване
         {
             this.Hide();
-            DeleteForm log = new DeleteForm();
+            DeleteForm log = new DeleteForm(); 
+            log.txtName.Text = txtName.Text;
+            log.txtNumberApp.Text = txtNumberApp.Text;
+            log.txtStatus.Text = txtStatus.Text;
+            log.txtYearBorn.Text = txtYearBorn.Text;
+            log.txtDateInput.Text = txtDateInput.Text;
+            log.txtDateOutput.Text = txtDateOutput.Text;
+            log.textPhoneNumber.Text = txtPhoneNumber.Text;
             log.StartPosition = FormStartPosition.CenterParent;
             log.ShowDialog();
 

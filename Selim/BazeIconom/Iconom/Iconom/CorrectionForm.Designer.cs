@@ -36,8 +36,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textIdNumber = new System.Windows.Forms.TextBox();
-            this.txtIdNumber = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textPhoneNumber = new System.Windows.Forms.TextBox();
+            this.txtPhone = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtStatus = new System.Windows.Forms.ComboBox();
@@ -49,8 +50,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnReturn = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtSerachBox = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -137,8 +137,10 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.groupBox1.Controls.Add(this.textIdNumber);
-            this.groupBox1.Controls.Add(this.txtIdNumber);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.textPhoneNumber);
+            this.groupBox1.Controls.Add(this.txtPhone);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.txtStatus);
@@ -154,30 +156,42 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.ForeColor = System.Drawing.Color.DarkGray;
-            this.groupBox1.Location = new System.Drawing.Point(26, 127);
+            this.groupBox1.Location = new System.Drawing.Point(31, 77);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(685, 371);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Лични данни";
             // 
-            // textIdNumber
+            // label10
             // 
-            this.textIdNumber.Location = new System.Drawing.Point(252, 325);
-            this.textIdNumber.Name = "textIdNumber";
-            this.textIdNumber.Size = new System.Drawing.Size(190, 43);
-            this.textIdNumber.TabIndex = 19;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label10.ForeColor = System.Drawing.Color.Blue;
+            this.label10.Location = new System.Drawing.Point(270, 322);
+            this.label10.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(129, 20);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "XXX-XXX-XXXX";
             // 
-            // txtIdNumber
+            // textPhoneNumber
             // 
-            this.txtIdNumber.AutoSize = true;
-            this.txtIdNumber.ForeColor = System.Drawing.Color.Blue;
-            this.txtIdNumber.Location = new System.Drawing.Point(2, 328);
-            this.txtIdNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.txtIdNumber.Name = "txtIdNumber";
-            this.txtIdNumber.Size = new System.Drawing.Size(68, 32);
-            this.txtIdNumber.TabIndex = 18;
-            this.txtIdNumber.Text = "ЕГН";
+            this.textPhoneNumber.Location = new System.Drawing.Point(252, 328);
+            this.textPhoneNumber.Name = "textPhoneNumber";
+            this.textPhoneNumber.Size = new System.Drawing.Size(190, 43);
+            this.textPhoneNumber.TabIndex = 19;
+            // 
+            // txtPhone
+            // 
+            this.txtPhone.AutoSize = true;
+            this.txtPhone.ForeColor = System.Drawing.Color.Blue;
+            this.txtPhone.Location = new System.Drawing.Point(2, 328);
+            this.txtPhone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(125, 32);
+            this.txtPhone.TabIndex = 18;
+            this.txtPhone.Text = "Телефон";
             // 
             // label9
             // 
@@ -281,30 +295,23 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Управление";
             // 
-            // txtSerachBox
+            // label11
             // 
-            this.txtSerachBox.Location = new System.Drawing.Point(26, 75);
-            this.txtSerachBox.Name = "txtSerachBox";
-            this.txtSerachBox.Size = new System.Drawing.Size(536, 43);
-            this.txtSerachBox.TabIndex = 17;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(568, 75);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(143, 38);
-            this.btnSearch.TabIndex = 11;
-            this.btnSearch.Text = "Търси";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label11.ForeColor = System.Drawing.Color.Red;
+            this.label11.Location = new System.Drawing.Point(446, 331);
+            this.label11.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(244, 29);
+            this.label11.TabIndex = 22;
+            this.label11.Text = "НЕ СЕ КОРИГИРА!";
             // 
             // CorrectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(936, 510);
-            this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.txtSerachBox);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
@@ -341,11 +348,11 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox txtSerachBox;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        public System.Windows.Forms.TextBox textIdNumber;
-        private System.Windows.Forms.Label txtIdNumber;
+        public System.Windows.Forms.TextBox textPhoneNumber;
+        private System.Windows.Forms.Label txtPhone;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
     }
 }
